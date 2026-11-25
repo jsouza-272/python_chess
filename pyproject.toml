@@ -1,0 +1,18 @@
+[project]
+name = "python-chess"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pygame>=2.6.1",
+]
+
+[dependency-groups]
+dev = [
+    "flake8>=7.5.0",
+    "flake8-pyproject>=1.2.4",
+    "mypy>=2.4.1",
+    "pyinstaller>=6.22.3",
+    "uv>=0.13.9",
+]
