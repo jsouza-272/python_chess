@@ -1,3 +1,5 @@
+from mypy.typeops import F
+
 from .board import Board
 from .consts import COORDS_TABLE
 import os
@@ -7,10 +9,14 @@ board = Board()
 
 
 user_input = ""
+invalid_flag = False
 movement = False
 while user_input != "q":
     os.system("clear")
     print(board)
+    if invalid_flag:
+        invalid_flag = False
+        print("invalid")
     user_input = input("q to quit: ")
     if user_input == "q":
         break
@@ -43,4 +49,6 @@ while user_input != "q":
                 x = COORDS_TABLE[c]
             else:
                 y = COORDS_TABLE[c]
+        if (x, y) not in possible_movements:
+            invalid_flag = True
         board.move(p_coord, (x, y))

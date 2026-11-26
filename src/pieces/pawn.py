@@ -30,13 +30,13 @@ class Pawn(Piece):
             if self.can_move((nx, ny), board) and board[ny][nx]:
                 moves.append((nx, ny))
         dx, dy = directions[0]
-        nx, ny = cx + dx, dy + cy
-        if self.can_move((nx, ny), board) and not board[ny][nx]:
+        nx, ny = cx + dx, cy + dy
+        if self.can_move((nx, ny), board):
             moves.append((nx, ny))
-        if self.first_move and not board[ny][nx]:
+        if self.first_move:
             self.first_move = False
             nx, ny = nx + dx, ny + dy
-            if self.can_move((nx, ny), board) and not board[ny][nx]:
+            if self.can_move((nx, ny), board):
                 moves.append((nx, ny))
         return moves
 
